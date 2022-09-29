@@ -4,8 +4,11 @@
 
 # 1、运行demo
   ***1. 申请到 声网测试的 appid，token，channel ，准备一下***
+
   ***2. 打开web体验demo，index.html 填写上面的参数***
+
   ***3. 打开 DefaultLayoutActivity，  AgoraUtil.getInstance().initEngine 填写上面的参数***
+  
   ***4. 运行web + app demo。app 这边进入（DefaultLayout）***
 
 # 2、注意，无人机这边要先有图传推流，才能触发声网推流。
