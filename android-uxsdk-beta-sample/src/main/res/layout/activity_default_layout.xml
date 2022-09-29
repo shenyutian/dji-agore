@@ -389,4 +389,15 @@
         app:layout_constraintWidth_percent="0.95"
         app:uxsdk_titleBarBackgroundColor="@color/uxsdk_black" />
 
+    <Button
+        android:id="@+id/bt_push"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="声网推流"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

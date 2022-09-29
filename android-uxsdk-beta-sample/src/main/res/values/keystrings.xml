@@ -23,7 +23,7 @@
   -->
 
 <resources>
-    <string name="dji_ux_sample_dji_sdk_api_key">YOUR MSDK APP ID</string>
+    <string name="dji_ux_sample_dji_sdk_api_key">50cb22e2d2157901e465809a</string>
     <string name="dji_ux_sample_here_maps_id">YOUR HERE MAPS ID</string>
     <string name="dji_ux_sample_here_maps_app_token">YOUR HERE MAPS APP TOKEN</string>
     <string name="dji_ux_sample_here_maps_license_key">YOUR HERE MAPS LICENSE KEY</string>

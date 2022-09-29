@@ -26,11 +26,15 @@ package com.dji.ux.beta.sample.showcase.defaultlayout;
 import android.os.Bundle;
 import android.os.PersistableBundle;
 import android.util.DisplayMetrics;
+import android.util.Log;
 import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.Transformation;
+import android.widget.Button;
+import android.widget.Toast;
 
 import com.dji.ux.beta.sample.R;
+import com.dji.ux.beta.sample.util.AgoraUtil;
 
 import java.util.concurrent.TimeUnit;
 
@@ -154,6 +158,37 @@ public class DefaultLayoutActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_default_layout);
+        Button btPush = findViewById(R.id.bt_push);
+        btPush.setOnClickListener(v -> {
+            if (AgoraUtil.getInstance().isSendData()) {
+                AgoraUtil.getInstance().exit();
+                btPush.setText("声网推流");
+            } else {
+                if (AgoraUtil.getInstance().initEngine(getApplicationContext(), "a0911b3a9e404109a355f3423ea08f53", "007eJxTYGDZdKXFfcWfphzO/yGKIq2hF6vPupfeu/9zQvM08RXzvskpMCQaWBoaJhknWqaaGJgYGlgmGpuaphmbGBmnJhpYpJkacy0yTu76bJJ821CGkZEBAkF8FoaS1OISBgYApTQhsQ==", "test", new AgoraUtil.Listener() {
+                    @Override
+                    public void initError(String error) {
+                        Log.e(TAG, error);
+                    }
+
+                    @Override
+                    public void startError(String error) {
+                        Log.e(TAG, error);
+                    }
+
+                    @Override
+                    public String getNewToken() {
+                        // todo 执行刷新token 操作
+                        return "new token";
+                    }
+                })) {
+                    AgoraUtil.getInstance().start();
+                    btPush.setText("停止推流");
+                } else {
+                    Toast.makeText(this, "初始化声网失败", Toast.LENGTH_SHORT).show();
+                }
+            }
+
+        });
 
         widgetHeight = (int) getResources().getDimension(R.dimen.mini_map_height);
         widgetWidth = (int) getResources().getDimension(R.dimen.mini_map_width);
